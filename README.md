@@ -29,6 +29,7 @@ Basically it tests the load by simulating multiple users visits.
 
     `locust -f locust/locustfile.py`
 
+When it starts access your browser like http://0.0.0.0:8089 and simulate the load that you desire.
 
 ## Ansible
 
