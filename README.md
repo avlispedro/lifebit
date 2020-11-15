@@ -28,10 +28,10 @@ The easy way to test it is to use an app like https://locust.io/
 Basically it tests the load by simulating multiple users visits.
 
 First add the LB address on the locust file:
-self.client.get("[Loadbalancer FQDN GOES HERE]")
+     self.client.get("[Loadbalancer FQDN GOES HERE]")
 
 Launch it like:
-    `locust -f locust/locustfile.py`
+     `locust -f locust/locustfile.py`
 
 Access it like:
 When it starts access your browser like http://0.0.0.0:8089 and simulate the load that you desire.
