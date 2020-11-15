@@ -56,9 +56,8 @@ To execute the playbook you have to use the following command:
 
 The autoscale group has policies that based on memory usage will scale up and down the cluster.
 
-```mermaid
-graph LR
-A[Loadbalancer] -- connected to --> B((AWS AutoScale Group))
-
-B --> D{Multiple Virtual servers}
+Loadbalancer -- connected to --> AWS AutoScale Group ---> VM 1
+                                                     ---> VM 2
+                                                     ---> VM 3
+                                                     ---> VM N
                             
