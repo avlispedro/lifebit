@@ -1,3 +1,4 @@
+
 # NodeJS Lifebit
 
 I will document here all the steps that I took to have installed a nodejs app.
@@ -28,7 +29,8 @@ The easy way to test it is to use an app like https://locust.io/
 Basically it tests the load by simulating multiple users visits.
 
 First add the LB address on the locust file:
-     self.client.get("[Loadbalancer FQDN GOES HERE]")
+
+    self.client.get("[Loadbalancer FQDN GOES HERE]")
 
 Launch it like:
      `locust -f locust/locustfile.py`
@@ -67,3 +69,4 @@ Loadbalancer -- connected to --> AWS AutoScale Group ---> VM 1
                                                      ---> VM 3
                                                      ---> VM N
                             
+
