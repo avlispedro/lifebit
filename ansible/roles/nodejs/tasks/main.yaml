@@ -1,0 +1,17 @@
+---
+- name: Check for node.js
+  shell: test "$(node -v 2> /dev/null)" = v{{node_version}}
+  register: nodejs_installed
+  ignore_errors: True
+  
+- name: Download node.js source
+  shell: curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
+  when: nodejs_installed.failed
+  become: yes
+
+- name: install packages (nodejs)
+  apt: name={{ item }} state=present update_cache=yes
+  with_items:
+  - nodejs
+  when: nodejs_installed.failed
+  become: yes

@@ -1,0 +1,11 @@
+plugin: aws_ec2
+regions:
+  - eu-west-2
+#boto_profile: default
+strict: False
+filters:
+  tag:lifebit: true
+  # tag:dev: prod
+  instance-state-name: running
+hostnames:
+  - ip-address   

@@ -6,4 +6,4 @@ class WebsiteUser(HttpUser):
        
     @task
     def index(self):
-        self.client.get("[Loadbalancer FQDN GOES HERE]")
+        self.client.get("http://elb-826097473.eu-west-2.elb.amazonaws.com/")

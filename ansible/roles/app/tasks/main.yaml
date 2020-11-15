@@ -1,0 +1,30 @@
+---
+
+- name: Set some variable
+  set_fact:
+    release_path: "{{ project_path }}/releases/{{ lookup('pipe','date +%Y%m%d%H%M%S') }}"
+    current_path: "{{ project_path }}/current"
+
+- name: Retrieve current release folder
+  command: readlink -f current
+  register: current_release_path
+  ignore_errors: yes
+  args:
+    chdir: "{{ project_path }}"
+
+- name: Clone the repository
+  git:
+    repo: https://github.com/nodejs/examples.git
+    dest: "{{ release_path }}"
+  become: yes
+
+- name: "Install forever (to run Node.js app)."
+  npm: name=forever global=yes state=present
+  become: yes
+
+- name: Istall/Start npm
+  # shell: npm install && npm start &
+  shell: npm install && forever start index.js
+  args:
+    chdir: "{{ current_path }}/servers/express/api-with-express-and-handlebars/"
+  become: yes

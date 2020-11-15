@@ -1,0 +1,17 @@
+---
+- name: This is a hello-world example
+  hosts: all
+  gather_facts: false
+  
+  vars:
+    project_path: /var/www/nodejs 
+  
+  tasks:
+    - name: Message
+      debug:
+        msg="Nodejs APP deployed with success!"
+      
+  roles:
+    #- base
+    #- nodejs
+    - app
