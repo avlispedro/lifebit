@@ -12,6 +12,6 @@
         msg="Nodejs APP deployed with success!"
       
   roles:
-    #- base
-    #- nodejs
+    - base
+    - nodejs
     - app
